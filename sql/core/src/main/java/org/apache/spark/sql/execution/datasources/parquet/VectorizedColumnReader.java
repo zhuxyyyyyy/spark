@@ -363,6 +363,7 @@ public class VectorizedColumnReader {
   private ValuesReader getValuesReader(Encoding encoding) {
     return switch (encoding) {
       case PLAIN -> new VectorizedPlainValuesReader();
+      case COLZIP -> new VectorizedColZipValuesReader();
       case DELTA_BYTE_ARRAY -> new VectorizedDeltaByteArrayReader();
       case DELTA_LENGTH_BYTE_ARRAY -> new VectorizedDeltaLengthByteArrayReader();
       case DELTA_BINARY_PACKED -> new VectorizedDeltaBinaryPackedReader();
